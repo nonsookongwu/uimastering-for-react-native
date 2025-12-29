@@ -5,6 +5,11 @@ import ContactUsScreen from './src/screens/ContactUsScreen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import MeditationScreen from './src/screens/MeditationScreen';
 import PaymentScreen from './src/screens/PaymentScreen';
+import StylishLogoScreen from './src/screens/StylishLogoScreen';
+import LoginScreen from './src/screens/LoginScreen';
+import MainStackNavigator from './src/navigation/MainStack';
+import { NavigationContainer } from '@react-navigation/native';
+import MyTabs from './src/navigation/BottomTabs';
 
 export default function App() {
   return (
@@ -12,7 +17,13 @@ export default function App() {
       {/* <IntroScreen /> */}
       {/* <ContactUsScreen /> */}
       {/* <MeditationScreen /> */}
-      <PaymentScreen/>
+      {/* <PaymentScreen/> */}
+      {/* <StylishLogoScreen/> */}
+      {/* <LoginScreen /> */}
+      <NavigationContainer>
+        <MyTabs />
+        {/* <MainStackNavigator/> */}
+      </NavigationContainer>
     </SafeAreaProvider>
   );
 }

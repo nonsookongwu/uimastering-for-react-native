@@ -6,15 +6,23 @@ interface Props {
   textColor?: string;
   children: string;
   fontWeight?: "400" | "500" | "600" | "700";
+  handleOnPress?: () => void;
+  textDecoration?: "underline" | "line-through";
 }
 
-const SubTitleText = ({ textColor, children, fontWeight }: Props) => {
+const SubTitleText = ({
+  textColor,
+  children,
+  fontWeight,
+  handleOnPress, textDecoration
+}: Props) => {
   return (
     <Text
       style={[
         styles.Text,
-        { color: textColor, fontWeight },
+        { color: textColor, fontWeight, textDecorationLine: textDecoration },
       ]}
+      onPress={handleOnPress}
     >
       {children}
     </Text>

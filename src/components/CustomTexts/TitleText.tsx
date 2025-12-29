@@ -5,10 +5,30 @@ import { s } from "react-native-size-matters";
 interface Props {
   textColor?: string;
   children: string;
+  fontWeight?: "400" | "500" | "600" | "700";
+  letterSpacing?: number;
+  textAlign?: "left" | "right" | "center";
+  lineHeight?: number;
 }
 
-const TitleText = ({ textColor, children }: Props) => {
-  return <Text style={[styles.socialMediaTitleText, {color: textColor}]}>{children}</Text>;
+const TitleText = ({
+  textColor,
+  children,
+  fontWeight,
+  letterSpacing,
+  textAlign,
+  lineHeight,
+}: Props) => {
+  return (
+    <Text
+      style={[
+        styles.socialMediaTitleText,
+        { color: textColor, fontWeight, letterSpacing, textAlign, lineHeight },
+      ]}
+    >
+      {children}
+    </Text>
+  );
 };
 
 export default TitleText;
@@ -16,7 +36,7 @@ export default TitleText;
 const styles = StyleSheet.create({
   socialMediaTitleText: {
     fontWeight: 700,
-    fontSize: s(30),
+    fontSize: s(36),
     lineHeight: s(36),
     color: "#000000",
     // marginLeft: 10,

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import React, { ComponentProps } from "react";
 import { s } from "react-native-size-matters";
 import {FontAwesome6, FontAwesome5} from "@expo/vector-icons";
@@ -6,27 +6,28 @@ import {FontAwesome6, FontAwesome5} from "@expo/vector-icons";
 interface Props {
   iconName: ComponentProps<typeof FontAwesome5>["name"];
   iconColor?: string;
-  isButton?: boolean;
+    borderColor?: string;
+    backgroundColor?: string;
 }
 
-const SocialMediaCircle = ({ iconName, iconColor = "#178AD9", isButton = false }: Props) => {
+const SocialMediaButton = ({ iconName, iconColor = "#178AD9", borderColor, backgroundColor }: Props) => {
   const isValidFA5 = (name: string) => {
     return FontAwesome5.getRawGlyphMap()[name] !== undefined;
   };
 
   return (
     
-      <View style = { styles.container } >
+      <TouchableHighlight style = { [styles.container, {borderColor, backgroundColor }] } >
       {isValidFA5(iconName) ? (
         <FontAwesome5 name={iconName} size={s(24)} color={iconColor} />
       ) : (
         <FontAwesome6 name={iconName} size={s(24)} color={iconColor} />
       )}
-    </View>
+    </TouchableHighlight>
   );
 };
 
-export default SocialMediaCircle;
+export default SocialMediaButton;
 
 const styles = StyleSheet.create({
   container: {
