@@ -1,10 +1,10 @@
 import { StyleSheet, Text, TextStyle, View } from "react-native";
-import React from "react";
+import React, { ReactNode } from "react";
 import { s } from "react-native-size-matters";
 
 interface Props {
   textColor?: string;
-  children: string;
+  children: ReactNode;
   fontWeight?: "400" | "500" | "600" | "700";
   handleOnPress?: () => void;
   textDecoration?: "underline" | "line-through";

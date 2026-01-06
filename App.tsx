@@ -10,10 +10,14 @@ import LoginScreen from './src/screens/LoginScreen';
 import MainStackNavigator from './src/navigation/MainStack';
 import { NavigationContainer } from '@react-navigation/native';
 import MyTabs from './src/navigation/BottomTabs';
+import { QueryClient, QueryClientProvider, useQueryClient } from '@tanstack/react-query';
+
+const queryClient = new QueryClient()
 
 export default function App() {
   return (
-    <SafeAreaProvider>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaProvider>
       {/* <IntroScreen /> */}
       {/* <ContactUsScreen /> */}
       {/* <MeditationScreen /> */}
@@ -21,10 +25,14 @@ export default function App() {
       {/* <StylishLogoScreen/> */}
       {/* <LoginScreen /> */}
       <NavigationContainer>
+
         <MyTabs />
+
         {/* <MainStackNavigator/> */}
       </NavigationContainer>
     </SafeAreaProvider>
+    </QueryClientProvider>
+    
   );
 }
 

@@ -4,6 +4,7 @@ import MeditationScreen from "../screens/MeditationScreen";
 import LoginScreen from "../screens/LoginScreen";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import BooksAPIScreen from "../screens/BooksAPIScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -21,13 +22,27 @@ function MyTabs() {
         }}
       />
       <Tab.Screen
-        name="profile"
+        name="meditation"
         component={MeditationScreen}
         options={{
           title: "Meditation",
           tabBarIcon: ({ color, focused, size }) => (
             <MaterialCommunityIcons
               name="meditation"
+              size={size}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="books"
+        component={BooksAPIScreen}
+        options={{
+          title: "Books",
+          tabBarIcon: ({ color, focused, size }) => (
+            <MaterialCommunityIcons
+              name="bookshelf"
               size={size}
               color={color}
             />

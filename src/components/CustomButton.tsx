@@ -1,23 +1,30 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import SubTitleText from './CustomTexts/SubTitleText';
-import { s } from 'react-native-size-matters';
+import { s, vs } from 'react-native-size-matters';
 import SmallText from './CustomTexts/SmallText';
 
 interface Props{
     bgColor: string;
     buttonText: string;
-    buttonFn?: () => void;
+  buttonFn?: () => void;
+  loading?: boolean;
 }
 
 
-const CustomButton = ({bgColor, buttonText, buttonFn}:Props) => {
+const CustomButton = ({bgColor, buttonText, buttonFn, loading}:Props) => {
   return (
     <TouchableOpacity
       style={[styles.button, { backgroundColor: bgColor }]}
       onPress={buttonFn}
     >
-      <SmallText textColor="#fff" fontWeight='700'>{buttonText}</SmallText>
+      {loading ? (
+        <ActivityIndicator />
+      ) : (
+        <SmallText textColor="#fff" fontWeight="700">
+          {buttonText}
+        </SmallText>
+      )}
     </TouchableOpacity>
   );
 }
@@ -32,5 +39,6 @@ const styles = StyleSheet.create({
           borderRadius: s(8),
           alignItems: "center",
         justifyContent: "center"
-      },
+  },
+  
 })
